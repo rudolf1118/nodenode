@@ -1,0 +1,13 @@
+service: my-service
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  createPost:
+    handler: index.lambdaHandler
+    events:
+      - schedule:
+          rate: rate(1 minute)
+          enabled: true
